@@ -20,6 +20,7 @@ class HH(Engine):
     """Возвращает 1000 вакансий с сайта HeadHunter"""
 
     def __init__(self, data: str):
+
         """Инициализирует класс где data - название по которому будет происходить поиск"""
         self.data = data
         self.request = self.get_request()
@@ -97,9 +98,10 @@ class HHVacancy(HH):
 
 
 
+
     def to_json(self):
-        with open('hhvacancy.json', 'w') as f:
-            json.dump(self.get_vacancy, f, indent=2)
+       with open('hhvacancy.json', 'w') as f:
+           json.dump(self.get_vacancy, f, indent=2)
 
 
 class SJVacancy(Superjob):
@@ -134,7 +136,6 @@ class SJVacancy(Superjob):
         with open('sjvacancy.json', 'w') as f:
             json.dump(self.get_vacancy, f, indent=2)
 
-
 class Vacancy(HHVacancy, SJVacancy):
     @staticmethod
     def combine_json():
@@ -144,6 +145,7 @@ class Vacancy(HHVacancy, SJVacancy):
         c = a + b
         with open('all_vacancy.json', 'w') as f:
             json.dump(c, f, indent=2)
+
 
 
 class Vacancy_list:
